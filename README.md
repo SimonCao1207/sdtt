@@ -198,9 +198,9 @@ python src/sdtt/main.py \
 
 
 ## Code structure
-* The entrypoint script is `src/fast_discrete_diff/main.py`. It can be used to train, sample and evaluate our models. The mode (train, sample, eval) is selected via the `mode` flag in `src/fast_discrete_diff/configs/config.yaml`.
-* We use hydra to manage config files, and all configuration files are in `src/fast_discrete_diff/configs`. 
-* The implementation of the distillation algorithm is in `src/fast_discrete_diff/core/distill/mdlm_double_dt_correct.py`. It contains the code to compute the loss and the training loop. We use Pytorch Lightning to organize our code cleanly.
+* The entrypoint script is `src/sdtt/main.py`. It can be used to train, sample and evaluate our models. The mode (train, sample, eval) is selected via the `mode` flag in `src/sdtt/configs/config.yaml`.
+* We use hydra to manage config files, and all configuration files are in `src/sdtt/configs`. 
+* The implementation of the distillation algorithm is in `src/sdtt/core/distill/mdlm_double_dt_correct.py`. It contains the code to compute the loss and the training loop. We use Pytorch Lightning to organize our code cleanly.
 
 
 
