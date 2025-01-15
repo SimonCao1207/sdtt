@@ -1,4 +1,4 @@
-# Beyond Autoregression: Fast LLMs via Self-Distillation Through Time
+# [Beyond Autoregression: Fast LLMs via Self-Distillation Through Time](https://arxiv.org/abs/2410.21035)
 
 By [Justin Deschenaux](https://x.com/jdeschena) and [Caglar Gulcehre](https://www.caglarg.com).
 
