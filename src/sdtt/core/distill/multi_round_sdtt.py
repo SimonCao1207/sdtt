@@ -545,6 +545,7 @@ def sample_uncond(module):
                 out = rearrange(out, "dev bs l -> (dev bs) l")
             all_samples.append(out.cpu())
         del out
+        fabric.barrier()
 
     # Join and save to disk
     if fabric.global_rank == 0:
@@ -554,6 +555,8 @@ def sample_uncond(module):
         save_path.parent.mkdir(exist_ok=True, parents=True)
         np.savez(save_path, samples=all_samples, metadata=metadata)
         logger.info(f"Saved {len(all_samples)} samples in {save_path}")
+
+    fabric.barrier()
 
     # Restore orig model weights
     if uncond_cfg.from_ema:
@@ -672,6 +675,7 @@ def sample_cond_prefix(module):
                     out = rearrange(out, "dev bs l -> (dev bs) l")
                 all_samples.append(out.cpu())
             del out
+            fabric.barrier()
 
     # Join and save to disk
     if fabric.global_rank == 0:
@@ -684,6 +688,8 @@ def sample_cond_prefix(module):
             save_path, samples=all_samples, references=references, metadata=metadata
         )
         logger.info(f"Saved samples in {save_path}")
+    
+    fabric.barrier()
 
     if cond_cfg.from_ema:
         pl_module.restore_ema()
