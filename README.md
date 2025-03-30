@@ -21,8 +21,11 @@ By [Justin Deschenaux](https://x.com/jdeschena) and [Caglar Gulcehre](https://ww
 - To run examples, you need to install our code first.
 - To install, run:
 ```bash
+mamba create -n sdtt python=3.10 -y
+mamba activate sdtt
 git clone https://github.com/jdeschena/sdtt.git
 pushd sdtt
+mamba install -c nvidia cuda-python
 pip install -r requirements.txt
 pip install flash-attn
 pip install --pre torchdata --index-url https://download.pytorch.org/whl/nightly/cpu
