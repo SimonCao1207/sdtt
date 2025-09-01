@@ -127,6 +127,7 @@ python src/sdtt/main.py \
     hydra.run.dir="./outputs/distill_2_steps_from_hf_sm" \
     loader.num_workers=16 \
     compile=False \
+    optim.lr=6e-5 \
     trainer.val_check_interval=5000 \
     data_preprocess.data_cache=./data_cache \
     wandb.project=debug
@@ -149,6 +150,7 @@ python src/sdtt/main.py \
     hydra.run.dir="./outputs/distill_2_steps_md" \
     loader.num_workers=16 \
     compile=False \
+    optim.lr=6e-5 \
     trainer.val_check_interval=5000 \
     data_preprocess.data_cache=./data_cache \
     wandb.project=debug
