@@ -265,7 +265,7 @@ class MultiRoundSDTT(DiffusionCore, PyTorchModelHubMixin, AncestralSampler, Anal
         t_start = t_start[None, :].double()
         t_end = t_start - dt * self.num_distill_steps
         # Evenly-spaced interpolation between t_start and t_end
-        ts = t_start * space + (1 - t_start) * t_end
+        ts = t_start * space + (1 - space) * t_end
         # Ensure we don't feed the model values smaller than sampling_eps
         ts = torch.maximum(ts, self.sampling_eps_tensor)
 
